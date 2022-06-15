@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <a href="/">
+                <h2 class="home">Home</h2>
+            </a>
+            <nav>
+                <a href="/events/new">
+                    <button class="btn-green">Add Event</button>
+                </a>
+            </nav>
+        </header>
+        <main>
+            <h2 class="heading">List Of Books</h2>
+            <div class="list">
+                <% events.forEach(event => { %>
+                    <h3><%= event.title %></h3>
+                    <a href="/events/<%= event._id %>">
+                        <button class="btn-green">Show Details</button>
+                    </a>
+                <% }) %>
+            </div>
+        </main>
+        <footer>
+            <small>&copy; AltCampus 2019</small>
+        </footer>
+    </div>
+</body>
+</html>
