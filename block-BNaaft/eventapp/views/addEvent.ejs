@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <a href="/">
+                <h2 class="home">Home</h2>
+            </a>
+            <nav>
+                <a href="/events">
+                    <button class="btn-green">Events</button>
+                </a>
+            </nav>
+        </header>
+        <main>
+            <h1 class="heading">Add Events</h1>
+            <div class="center">
+                <form action="/events" method="post" class="form">
+                    <input type="text" name="title" placeholder="Add Title">
+                    <textarea name="summary" rows="4" placeholder="Add Summary"></textarea>
+                    <input type="text" name="host" placeholder="Add Host">
+                    <input type="date" id="start" name="startDate">
+                    <input type="date" id="end" name="endDate">
+                    <input type="text" name="location" placeholder="Add Location">
+                    <button type="submit" class="btn-blue">Add Article</button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <small>&copy; AltCampus 2019</small>
+        </footer>
+    </div>
+</body>
+</html>
