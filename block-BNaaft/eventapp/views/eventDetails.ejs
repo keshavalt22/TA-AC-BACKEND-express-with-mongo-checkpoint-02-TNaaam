@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="flex">
+            <a href="/">
+                <h2 class="home">Home</h2>
+            </a>
+            <nav>
+                <a href="/events">
+                    <button class="btn-green">Event</button>
+                </a>
+            </nav>
+        </header>
+        <main>
+            <h2 class="heading">Event</h2>
+            <div class="list">
+                <h2><%= event.title%></h2>
+                <h3><%= event.host %></h3>
+                <p><%= event.summary %></p>
+                <h5>Start Date: <%= event.startDate %></h5>
+                <h5>End Date: <%= event.endDate %></h5>
+                <h5>Location: <%= event.location %></h5>
+                <h5>Likes: <%= event.likes ? event.likes : 0 %></h5>
+                <div>
+                    <a href="/events/<%= event._id %>/likes">
+                        <button class="btn-blue">Like</button>
+                    </a>
+                </div>
+                <div>
+                    <a href="/events/<%= event._id %>/edit">
+                        <button class="btn-green">Edit</button>
+                    </a>
+                    <a href="/events/<%= event._id %>/delete">
+                        <button class="btn-red">Delete</button>
+                    </a>
+                </div>
+                <div>
+                    <form action="/events/<%= event._id %>/remarks" method="post" class="form-2 margin-top">
+                        <textarea name="content" cols="40" rows="6" placeholder="Add content"></textarea>
+                        <input type="text" name="author" placeholder="Add Name">
+                        <input type="submit" value="Add Remark" class="btn-green">
+                    </form>
+                </div>
+                <div>
+                    <h3>Remarks</h3>
+                    <hr>
+                    <% event.remarks.forEach(remark => { %>
+                    <div>
+                        <p class="margin-top"><%= remark.content %></p>
+                        <p><%= remark.author %></p>
+                        <h5>Likes: <%= remark.likes ? remark.likes : 0 %></h5>
+                        <a href="/remarks/<%= remark._id%>/likes">
+                            <button class="btn-green">Like</button>
+                        </a>
+                    </div>
+                    <% })%>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <small>&copy; AltCampus 2019</small>
+        </footer>
+    </div>
+</body>
+</html>
